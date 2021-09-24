@@ -5,18 +5,20 @@ const Cart = ({ cart }) => {
 
     let totalQuantity = 0
     let total = 0
-    cart.forEach(product => {
+    for (const product of cart) {
+
         if (!product.quantity) {
             product.quantity = 1
         }
         total = total + product.price * product.quantity
+        console.log(product.quantity);
         totalQuantity = totalQuantity + product.quantity
-    });
+    };
 
     // const totalQuantity = cart.reduce((total, product) => total + !product.quantity ? 1 : product.quantity, 0)
     // const total = cart.reduce((total, product) => total + (product.price * !product.quantity ? 1 : product.quantity), 0)
-    const shipping = total > 0 ? 15:0
-    const tax = (total + shipping) * 0.10
+    const shipping = total > 0 ? 15 : 0
+    const tax = total + shipping * 0.10
     const grandTotal = total + tax + shipping
     return (
         <div>
