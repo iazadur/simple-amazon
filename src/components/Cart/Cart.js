@@ -10,9 +10,11 @@ const Cart = ({ cart }) => {
         if (!product.quantity) {
             product.quantity = 1
         }
+        console.log(product);
         total = total + product.price * product.quantity
         console.log(product.quantity);
         totalQuantity = totalQuantity + product.quantity
+        console.log(totalQuantity);
     };
 
     // const totalQuantity = cart.reduce((total, product) => total + !product.quantity ? 1 : product.quantity, 0)
